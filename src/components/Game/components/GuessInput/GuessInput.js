@@ -1,3 +1,5 @@
+import { GUESS_MAX_LENGTH } from "../../../../../../constants";
+
 export function GuessInput({ onSubmit, onChange, value }) {
   return (
     <form className="guess-input-wrapper" onSubmit={onSubmit}>
@@ -7,7 +9,7 @@ export function GuessInput({ onSubmit, onChange, value }) {
         type="text"
         value={value}
         onChange={onChange}
-        pattern="\w{5}"
+        pattern={`\w{${GUESS_MAX_LENGTH}}`}
       />
     </form>
   );
