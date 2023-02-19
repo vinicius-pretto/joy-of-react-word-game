@@ -1,11 +1,13 @@
-export function GuessResult({ guess }) {
-  const letters = guess.value.split("");
+import { checkGuess } from "../../../../../../game-helpers";
+
+export function GuessResult({ guess, answer }) {
+  const result = checkGuess(guess.value, answer);
 
   return (
     <p className="guess">
-      {letters.map((letter, idx) => (
-        <span key={idx} className="cell">
-          {letter}
+      {result.map((it, idx) => (
+        <span key={idx} className={`cell ${it.status}`}>
+          {it.letter}
         </span>
       ))}
     </p>

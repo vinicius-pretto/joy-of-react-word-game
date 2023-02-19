@@ -39,7 +39,7 @@ function Game() {
 
   return (
     <main>
-      <GuessResults results={guessResults} />
+      <GuessResults results={guessResults} answer={answer} />
       <GuessInput
         onSubmit={onSubmitGuess}
         onChange={onGuessInputChange}

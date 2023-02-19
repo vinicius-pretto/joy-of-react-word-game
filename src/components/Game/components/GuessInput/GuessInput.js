@@ -1,4 +1,4 @@
-import { GUESS_MAX_LENGTH } from "../../../../../../constants";
+import { GUESS_MAX_LENGTH } from "../../../../constants";
 
 export function GuessInput({ onSubmit, onChange, value }) {
   return (
@@ -9,7 +9,7 @@ export function GuessInput({ onSubmit, onChange, value }) {
         type="text"
         value={value}
         onChange={onChange}
-        pattern={`\w{${GUESS_MAX_LENGTH}}`}
+        pattern={`\\w{${GUESS_MAX_LENGTH}}`}
       />
     </form>
   );
