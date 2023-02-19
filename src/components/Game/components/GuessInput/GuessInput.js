@@ -9,7 +9,9 @@ export function GuessInput({ onSubmit, onChange, value }) {
         type="text"
         value={value}
         onChange={onChange}
-        pattern={`\\w{${GUESS_MAX_LENGTH}}`}
+        required
+        minLength={GUESS_MAX_LENGTH}
+        maxLength={GUESS_MAX_LENGTH}
       />
     </form>
   );
