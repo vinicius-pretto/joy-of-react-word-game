@@ -31,22 +31,23 @@ function Game() {
     }
 
     const guessResult = buildGuessResult(guess);
+    const nextGuessResults = [...guessResults, guessResult];
     setGuess("");
-    setGuessResults((results) => results.concat(guessResult));
+    setGuessResults(nextGuessResults);
 
     if (checkIfWin(guess, answer)) {
       setGameState(GAME_STATE.WIN);
       return;
     }
 
-    if (checkIfLose(guessResults)) {
+    if (checkIfLose(nextGuessResults)) {
       setGameState(GAME_STATE.LOSE);
       return;
     }
   }
 
   function checkIfLose(guessResults) {
-    return guessResults.length + 1 >= NUM_OF_GUESSES_ALLOWED;
+    return guessResults.length >= NUM_OF_GUESSES_ALLOWED;
   }
 
   function checkIfWin(guess, answer) {
