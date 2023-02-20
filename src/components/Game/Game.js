@@ -65,15 +65,17 @@ function Game() {
   return (
     <>
       <GuessResults results={guessResults} answer={answer} />
-      {gameState === GAME_STATE.WIN && <WinBanner />}
-      {gameState === GAME_STATE.LOSE && <LoseBanner answer={answer} />}
-      {gameState === GAME_STATE.PLAYING && (
-        <GuessInput
-          onSubmit={onSubmitGuess}
-          onChange={onGuessInputChange}
-          value={guess}
-        />
+      <GuessInput
+        onSubmit={onSubmitGuess}
+        onChange={onGuessInputChange}
+        value={guess}
+        disabled={[GAME_STATE.WIN, GAME_STATE.LOSE].includes(gameState)}
+      />
+
+      {gameState === GAME_STATE.WIN && (
+        <WinBanner numOfGuesses={guessResults.length} />
       )}
+      {gameState === GAME_STATE.LOSE && <LoseBanner answer={answer} />}
     </>
   );
 }
